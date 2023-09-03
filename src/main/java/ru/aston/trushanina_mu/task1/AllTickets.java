@@ -1,5 +1,7 @@
 package ru.aston.trushanina_mu.task1;
 
+import ru.aston.trushanina_mu.task2.OrderException;
+
 import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.List;
@@ -21,6 +23,9 @@ public class AllTickets extends Order implements TicketCalculation {
     public BigDecimal getAmount() {
         BigDecimal amount = new BigDecimal("0.0");
         for (Order order : orders) {
+            if (order.getAmount().intValue() < 0) {
+                throw new OrderException(400, "Сумма заказа не может быть отрицательной");
+            }
             amount = amount.add(order.getAmount());
         }
         return amount;

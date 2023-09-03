@@ -28,7 +28,8 @@ public class OrderTicket extends Order {
             case TRAMWAY -> result = new BigDecimal("0.06");
             case CITY_BUS -> result = new BigDecimal("0.05");
             case OUTSKIRTS_BUS -> result = new BigDecimal("0.07");
-            default -> throw new DiscountException(404, "Такой район не найден");
+            default -> throw new DiscountException(404, "Такой район не найден"); // если передать null в конструктор
+            // для теста - это уже будет NullPointerException
         }
         return coefficient.add(result);
     }
