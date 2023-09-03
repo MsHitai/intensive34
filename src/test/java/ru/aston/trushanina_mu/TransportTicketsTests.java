@@ -2,7 +2,6 @@ package ru.aston.trushanina_mu;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import ru.aston.trushanina_mu.task1.AllTickets;
 import ru.aston.trushanina_mu.task1.DailyOrder;
 import ru.aston.trushanina_mu.task1.Order;
@@ -15,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@SpringBootTest
+
 class TransportTicketsTests {
 
     private AllTickets allTickets;
