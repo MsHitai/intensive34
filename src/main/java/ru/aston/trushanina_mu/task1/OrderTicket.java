@@ -1,5 +1,7 @@
 package ru.aston.trushanina_mu.task1;
 
+import ru.aston.trushanina_mu.task2.DiscountException;
+
 import java.math.BigDecimal;
 
 public class OrderTicket extends Order {
@@ -21,11 +23,13 @@ public class OrderTicket extends Order {
 
     @Override
     public BigDecimal getDiscount() {
-        BigDecimal result = new BigDecimal("0.0");
+        BigDecimal result;
         switch (route) {
             case TRAMWAY -> result = new BigDecimal("0.06");
             case CITY_BUS -> result = new BigDecimal("0.05");
             case OUTSKIRTS_BUS -> result = new BigDecimal("0.07");
+            default -> throw new DiscountException(404, "Такой район не найден"); // если передать null в конструктор
+            // для теста - это уже будет NullPointerException
         }
         return coefficient.add(result);
     }
